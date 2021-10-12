@@ -1,6 +1,6 @@
 context("Test auxiliary functions")
 
-# testthat::skip('skip')
+testthat::skip('skip')
 RNGkind("L'Ecuyer-CMRG")
 
 test_that("Tenv_Pval function works", {

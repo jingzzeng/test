@@ -25,8 +25,12 @@ fun1D_mfd <- function(M, U) {
 first1D <- function(M, U, ...) {
 
   opts <- list(...)
-  if(is.null(opts$maxiter) || opts$maxiter < 0 || opts$maxiter > 2^20) opts$maxiter=500
-  if(is.null(opts$tol) || opts$tol < 0 || opts$tol > 1) opts$tol=1e-08
+  ##TODO:
+  # if(is.null(opts$maxiter) || opts$maxiter < 0 || opts$maxiter > 2^20) opts$maxiter=500
+  if(is.null(opts$maxiter) || opts$maxiter < 0 || opts$maxiter > 2^20) opts$maxiter=800
+  # if(is.null(opts$tol) || opts$tol < 0 || opts$tol > 1) opts$tol=1e-08
+  ##TODO:
+  if(is.null(opts$tol) || opts$tol < 0 || opts$tol > 1) opts$tol=1e-14
   if(is.null(opts$method)) opts$method="RBFGS"
   if(is.null(opts$check)) opts$check= FALSE
 

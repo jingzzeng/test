@@ -10,3 +10,5 @@ cache: packages
 os:
  - linux
  - osx
+
+latex: false

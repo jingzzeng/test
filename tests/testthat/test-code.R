@@ -19,11 +19,11 @@ test_that("Section 3.1", {
   Pdist_1d1 <- sum(Pdist_1d1)
   Pdist_pls1 <- sum(Pdist_pls1)
 
-  expect_equal(unname(c(summary(fit_ols1$coefficients@data))), c(-0.237765722,-0.008733723,-0.001132100,-0.001345970,0.002887278,0.120372621), tol = 1e-8)
-  expect_equal(unname(c(summary(fit_1d1$coefficients@data))), c(-8.968710e-03,-7.542956e-05,2.438858e-07,2.755897e-03,1.286767e-04,9.284800e-02), tol = 1e-8)
-  expect_equal(unname(c(summary(fit_pls1$coefficients@data))), c(-0.2447121,-0.01042121,-0.00152305,-0.003279391,0.002291145,0.13182), tol = 1e-8)
-  expect_equal(c(dist_ols1, dist_1d1, dist_pls1), c(0.97204003,0.044284581,1.1919118), tol = 1e-8)
-  expect_equal(c(Pdist_1d1, Pdist_pls1), c(0.11434039, 1.46626921), tol = 1e-8)
+  expect_equal(unname(c(summary(fit_ols1$coefficients@data))), c(-0.23776572,-0.008733723,-0.0011321,-0.0013459704,0.0028872783,0.12037262), tol = 1e-8)
+  expect_equal(unname(c(summary(fit_1d1$coefficients@data))), c(-0.0090063837,-8.5386625e-05,-3.8275866e-07,0.0027569357,0.00012573236,0.092872601), tol = 1e-8)
+  expect_equal(unname(c(summary(fit_pls1$coefficients@data))), c(-0.244712,-0.010421177,-0.0015230425,-0.0032793868,0.0022911425,0.13181997), tol = 1e-8)
+  expect_equal(c(dist_ols1, dist_1d1, dist_pls1), c(0.972040026, 0.044169466, 1.191911596), tol = 1e-8)
+  expect_equal(c(Pdist_1d1, Pdist_pls1), c(0.11357711, 1.46626919), tol = 1e-8)
 })
 
 test_that("Section 3.2", {
@@ -44,11 +44,11 @@ test_that("Section 3.2", {
   Pdist_1d2 <- sum(Pdist_1d2)
   Pdist_pls2 <- sum(Pdist_pls2)
 
-  expect_equal(unname(c(summary(fit_ols2$coefficients@data))), c(-279.22535,-47.647966,0.32928287,0.17935058,50.119298,193.01952), tol = 1e-8)
-  expect_equal(unname(c(summary(fit_1d2$coefficients@data))), c(0.0051790165,0.0064485306,0.042028368,0.072423178,0.060669237,0.48382142), tol = 1e-8)
-  expect_equal(unname(c(summary(fit_pls2$coefficients@data))), c(0.0098860004,0.036249218,0.041738415,0.082750835,0.047979281,0.50897739), tol = 1e-8)
-  expect_equal(c(dist_ols2, dist_1d2, dist_pls2), c(2225.6377950, 5.7978263, 5.5905682), tol = 1e-8)
-  expect_equal(c(Pdist_1d2, Pdist_pls2), c(1.4142544,0.1563164), tol = 1e-8)
+  expect_equal(unname(c(summary(fit_ols2$coefficients@data))), c(-279.22534,-47.647935,0.3292953,0.1793506,50.11932,193.01954), tol = 1e-8)
+  expect_equal(unname(c(summary(fit_1d2$coefficients@data))), c(0.0051724674,0.0064416012,0.041992609,0.072408052,0.06063525,0.48383079), tol = 1e-8)
+  expect_equal(unname(c(summary(fit_pls2$coefficients@data))), c(0.0098859986,0.03624922,0.041738415,0.082750835,0.04797928,0.50897739), tol = 1e-8)
+  expect_equal(c(dist_ols2, dist_1d2, dist_pls2), c(2225.6377647, 5.7978275,5.5905682), tol = 1e-8)
+  expect_equal(c(Pdist_1d2, Pdist_pls2), c(1.41425441, 0.15631639), tol = 1e-8)
 })
 
 
@@ -57,9 +57,9 @@ test_that("Section 3.3", {
   # Dimension selection for both TRR and TPR models
   uhat1 <- TRRdim(bat$x, bat$y, maxdim = 32)
   uhat2 <- TPRdim(square$x, square$y, maxdim = 16)
-  testthat::expect_equal(uhat1$bicval, c(-1261.6120, -1183.2608), tol = 1e-4)
-  testthat::expect_equal(uhat1$mse, 1.9220851, tol = 1e-7)
-  testthat::expect_equal(uhat2$mincv, 1.1054943, tol = 1e-7)
+  testthat::expect_equal(uhat1$bicval, c(-1226.3918, -1181.5243), tol = 1e-4)
+  testthat::expect_equal(uhat1$mse, 1.9220775, tol = 1e-7)
+  testthat::expect_equal(uhat2$mincv,  1.1054945, tol = 1e-7)
 })
 
 test_that("Section 3.5", {
@@ -67,7 +67,7 @@ test_that("Section 3.5", {
   data("EEG")
   # Dimension selection
   u_eeg <- TRRdim(EEG$x, EEG$y)
-  testthat::expect_equal(u_eeg$bicval, c(1.8672561, 1.6075473), tol = 1e-7)
+  testthat::expect_equal(u_eeg$bicval, c(1.8677789,1.6071015), tol = 1e-7)
 })
 
 test_that("Section 4.3", {
@@ -101,7 +101,7 @@ test_that("Section 4.3", {
   for (i in 7:8) {
     d[i] <- subspace(G[[i]], Gamma)
   }
-  expect_equal(d, c(1.2998376e-08,5.649722e-13,1.3689449e-07,2.5737305e-08,1.315171e-07,2.433858e-08,0.63245553,0.72155627), tol = 1e-8)
+  expect_equal(d, c(1.2998376e-08,5.649722e-13,1.3689449e-07,6.13004e-13,1.315171e-07,6.5317157e-13,0.63245553,0.72155627), tol = 1e-8)
 })
 
 

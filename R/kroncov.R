@@ -22,7 +22,7 @@
 #' @importFrom pracma sqrtm
 # kroncov <- function(Tn, tol = 1e-6, maxiter = 10){
 ##TODO:
-kroncov <- function(Tn, tol = 1e-12, maxiter = 50){
+kroncov <- function(Tn, tol = 1e-12, maxiter = 500){
   ss <- dim(Tn)
   if(is.null(ss) || length(ss) <= 1) stop("The dimension of Tn should be larger than one.")
   if(!inherits(Tn, "Tensor")){

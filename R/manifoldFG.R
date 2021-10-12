@@ -84,13 +84,21 @@ manifoldFG <- function(M, U, u, Gamma_init = NULL, ...) {
   u <- dim(Gamma_init)[2]
 
   opts <- list(...)
+  ##TODO:
+  # if(is.null(opts$maxiter))
+    # opts$maxiter=500 else if (opts$maxiter < 0 || opts$maxiter > 2^20)
+    # opts$maxiter=500
   if(is.null(opts$maxiter))
-    opts$maxiter=500 else if (opts$maxiter < 0 || opts$maxiter > 2^20)
-    opts$maxiter=500
+    opts$maxiter=800 else if (opts$maxiter < 0 || opts$maxiter > 2^20)
+    opts$maxiter=800
 
+  ##TODO:
+  # if(is.null(opts$tol))
+  #   opts$tol=1e-08 else if (opts$tol < 0 || opts$tol >+ 1)
+  #   opts$tol=1e-08
   if(is.null(opts$tol))
-    opts$tol=1e-08 else if (opts$tol < 0 || opts$tol >+ 1)
-    opts$tol=1e-08
+    opts$tol=1e-14 else if (opts$tol < 0 || opts$tol >+ 1)
+      opts$tol=1e-14
 
   if(is.null(opts$method))
     opts$method="RBFGS"

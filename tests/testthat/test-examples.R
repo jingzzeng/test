@@ -1,6 +1,6 @@
 context("Test reproducible examples in the paper.")
 
-testthat::skip('skip')
+# testthat::skip('skip')
 RNGkind("L'Ecuyer-CMRG")
 
 test_that("Section 3.1", {

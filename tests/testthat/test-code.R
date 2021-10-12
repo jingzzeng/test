@@ -46,7 +46,7 @@ test_that("Section 3.2", {
 
   expect_equal(unname(c(summary(fit_ols2$coefficients@data))), c(-279.22535,-47.647966,0.32928287,0.17935058,50.119298,193.01952), tol = 1e-8)
   expect_equal(unname(c(summary(fit_1d2$coefficients@data))), c(0.0051790165,0.0064485306,0.042028368,0.072423178,0.060669237,0.48382142), tol = 1e-8)
-  expect_equal(unname(c(summary(fit_pls1$coefficients@data))), c(0.0098860004,0.036249218,0.041738415,0.082750835,0.047979281,0.50897739), tol = 1e-8)
+  expect_equal(unname(c(summary(fit_pls2$coefficients@data))), c(0.0098860004,0.036249218,0.041738415,0.082750835,0.047979281,0.50897739), tol = 1e-8)
   expect_equal(c(dist_ols2, dist_1d2, dist_pls2), c(2225.6377950, 5.7978263, 5.5905682), tol = 1e-8)
   expect_equal(c(Pdist_1d2, Pdist_pls2), c(1.4142544,0.1563164), tol = 1e-8)
 })
@@ -101,7 +101,7 @@ test_that("Section 4.3", {
   for (i in 7:8) {
     d[i] <- subspace(G[[i]], Gamma)
   }
-  expect_equal(d, c(1.4656091e-09,2.9683284e-13,5.1506432e-10,1.9246747e-09,4.5243985e-10,1.7448437e-09,0.4472136,0.60979972), tol = 1e-8)
+  expect_equal(d, c(1.2998376e-08,5.649722e-13,1.3689449e-07,2.5737305e-08,1.315171e-07,2.433858e-08,0.63245553,0.72155627), tol = 1e-8)
 })
 
 

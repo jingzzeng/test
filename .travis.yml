@@ -1,6 +1,11 @@
 language: r
+warnings_are_errors: true
 r:
   - oldrel
   - release
   - devel
-os: osx
+
+cache: packages
+
+os:
+ - linux

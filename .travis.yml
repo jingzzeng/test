@@ -9,3 +9,6 @@ cache: packages
 
 os:
  - linux
+
+after_success:
+ - cat /home/travis/build/leozeng15/test/TRES.Rcheck/00check.log
